@@ -24,6 +24,7 @@ userRoutes.patch(
   "/:id",
   ensureTokenIsValid,
   ensureBodyIsValid(updateUserSchema),
+  ensureIsAdmin,
   updateUser
 );
 userRoutes.delete("/:id", ensureTokenIsValid, ensureIsAdmin, deleteUser);

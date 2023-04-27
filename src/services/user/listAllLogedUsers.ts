@@ -23,7 +23,6 @@ const listLogedUserService = async (id:number): Promise<TMyUserResponse[]> => {
   const user: TMyUserResponse[] = allUsersSchemaRequest.parse([
     queryResult.rows[0]]
   );
-  console.log(user)
   return user;
 
 };
