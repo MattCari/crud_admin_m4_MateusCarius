@@ -18,7 +18,7 @@ import ensureTokenIsValid from "../../middlewares/ensureTokenIsValid";
 const userRoutes: Router = Router();
 
 userRoutes.post("", ensureBodyIsValid(userSchemaRequest), createUser);
-userRoutes.get("", ensureTokenIsValid, ensureIsAdmin, listUsers);
+userRoutes.get("", ensureTokenIsValid, listUsers);
 userRoutes.get("/:profile", ensureTokenIsValid, ensureIsAdmin, listLogedUsers);
 userRoutes.patch(
   "/:id",
