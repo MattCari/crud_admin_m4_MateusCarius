@@ -5,7 +5,6 @@ import {
   TMyUserUpdateRequest,
 } from "../../interfaces/users.interfaces";
 import { client } from "../../database";
-import { userSchemaResponse } from "../../schemas/users.schemas";
 import { TUser } from "../../__tests__/mocks/interfaces";
 
 const updateUserService = async (

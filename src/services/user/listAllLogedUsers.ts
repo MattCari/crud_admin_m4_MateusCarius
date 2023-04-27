@@ -12,7 +12,8 @@ const listLogedUserService = async (id:number): Promise<TMyUserResponse[]> => {
     SELECT *
     FROM
     users
-    WHERE id = %L;
+    WHERE id = %L
+    AND "active" = 'true';
   `,
     id
   );

@@ -26,6 +26,10 @@ const updateUserSchema = userSchemaRequest.omit({
     active:true
 }).partial()
 
+const deleteUserSchema = userSchemaRequest.omit({
+    password:true,
+    admin:true,
+}).partial()
 
 
-export {userSchema,userSchemaRequest,userSchemaResponse,allUsersSchemaRequest,updateUserSchema}
+export {userSchema,userSchemaRequest,userSchemaResponse,allUsersSchemaRequest,updateUserSchema,deleteUserSchema}

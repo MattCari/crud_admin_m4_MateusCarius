@@ -1,8 +1,10 @@
 import { Router } from "express";
 import {
   createUser,
+  deleteUser,
   listLogedUsers,
   listUsers,
+  reactivateUserController,
   updateUser,
 } from "../../controllers/usersControlers/users.controllers";
 import {
@@ -16,7 +18,7 @@ import ensureTokenIsValid from "../../middlewares/ensureTokenIsValid";
 const userRoutes: Router = Router();
 
 userRoutes.post("", ensureBodyIsValid(userSchemaRequest), createUser);
-userRoutes.get("",ensureTokenIsValid,ensureIsAdmin, listUsers);
+userRoutes.get("", ensureTokenIsValid, ensureIsAdmin, listUsers);
 userRoutes.get("/:profile", ensureTokenIsValid, ensureIsAdmin, listLogedUsers);
 userRoutes.patch(
   "/:id",
@@ -24,5 +26,7 @@ userRoutes.patch(
   ensureBodyIsValid(updateUserSchema),
   updateUser
 );
+userRoutes.delete("/:id", ensureTokenIsValid, ensureIsAdmin, deleteUser);
+userRoutes.put("/:id/recover", ensureTokenIsValid,ensureIsAdmin,reactivateUserController);
 
 export default userRoutes;
