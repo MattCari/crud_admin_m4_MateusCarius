@@ -28,7 +28,7 @@ const handleErrors = (
 
     
 
-    console.log(err)
+    console.log("key",err)
 
     return res.status(500).json({
         message: 'Internal server error',

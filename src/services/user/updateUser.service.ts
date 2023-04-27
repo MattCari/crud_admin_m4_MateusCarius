@@ -28,11 +28,11 @@ const updateUserService = async (
     values: [userId],
   };
 
+
   const queryResult: QueryResult<TUser> = await client.query(queryConfig);
+  //const user: TMyUserResponse = userSchemaResponse.parse(queryResult.rows[0]);
 
-  const user: TMyUserResponse = userSchemaResponse.parse(queryResult.rows[0]);
-
-  return user;
+  return queryResult.rows[0];
 };
 
 export default updateUserService;

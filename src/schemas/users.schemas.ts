@@ -26,4 +26,6 @@ const updateUserSchema = userSchemaRequest.omit({
     active:true
 }).partial()
 
+
+
 export {userSchema,userSchemaRequest,userSchemaResponse,allUsersSchemaRequest,updateUserSchema}

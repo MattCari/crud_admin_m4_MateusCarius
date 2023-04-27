@@ -19,11 +19,12 @@ const listLogedUserService = async (id:number): Promise<TMyUserResponse[]> => {
 
   const queryResult: QueryResult<TUser> = await client.query(queryString);
 
-  const user: TMyUserResponse[] = allUsersSchemaRequest.parse(
-    queryResult.rows[0]
+  const user: TMyUserResponse[] = allUsersSchemaRequest.parse([
+    queryResult.rows[0]]
   );
-
+  console.log(user)
   return user;
+
 };
 
 export default listLogedUserService;

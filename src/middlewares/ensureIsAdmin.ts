@@ -7,7 +7,6 @@ const ensureIsAdmin = async (
   next: NextFunction
 ): Promise<void> => {
     const isAdmin = res.locals.token.admin
-    console.log(res.locals)
     if(isAdmin === true){
         return next()
     }else{
