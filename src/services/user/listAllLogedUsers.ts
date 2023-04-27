@@ -7,22 +7,18 @@ import format from "pg-format";
 
 const listLogedUserService = async (id:number): Promise<TMyUserResponse[]> => {
 
-  const queryString: string = format(
+  const queryString: string = 
     `
     SELECT *
     FROM
     users
-    WHERE id = %L
-  ;
-  `,
-    id
-  );
+    WHERE "active" = 'true';
+  `
 
   const queryResult: QueryResult<TUser> = await client.query(queryString);
 
-  const user: TMyUserResponse[] = allUsersSchemaRequest.parse([
-    queryResult.rows[0]]
-  );
+  const user: TMyUserResponse[] = queryResult.rows
+ 
   return user;
 
 };
