@@ -1,11 +1,10 @@
 import { QueryResult } from "pg";
-import { allUsersSchemaRequest } from "../../schemas/users.schemas";
 import { TMyUserResponse } from "../../interfaces/users.interfaces";
 import { TUser } from "../../__tests__/mocks/interfaces";
 import { client } from "../../database";
-import format from "pg-format";
 
-const listLogedUserService = async (id:number): Promise<TMyUserResponse[]> => {
+
+const listLogedUserService = async (): Promise<TMyUserResponse[]> => {
 
   const queryString: string = 
     `

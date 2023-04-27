@@ -47,9 +47,7 @@ export const listLogedUsers = async (
   req: Request,
   res: Response
 ): Promise<Response> => {
-  const users: TMyUserResponse[] = await listLogedUserService(
-    Number(res.locals.token.id)
-  );
+  const users: TMyUserResponse[] = await listLogedUserService()
 
   return res.status(200).json(users);
 };
