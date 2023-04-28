@@ -14,11 +14,12 @@ import {
 import ensureBodyIsValid from "../../middlewares/ensureBodyIsValid";
 import ensureIsAdmin from "../../middlewares/ensureIsAdmin";
 import ensureTokenIsValid from "../../middlewares/ensureTokenIsValid";
+import ensureEmailNotExists from "../../middlewares/ensureEmailNotExits";
 
 const userRoutes: Router = Router();
 
-userRoutes.post("", ensureBodyIsValid(userSchemaRequest), createUser);
-userRoutes.get("", ensureTokenIsValid, listUsers);
+userRoutes.post("", ensureBodyIsValid(userSchemaRequest),ensureEmailNotExists, createUser);
+userRoutes.get("", ensureTokenIsValid,ensureIsAdmin, listUsers);
 userRoutes.get("/:profile", ensureTokenIsValid, ensureIsAdmin, listLogedUsers);
 userRoutes.patch(
   "/:id",
